@@ -34,7 +34,7 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="sh 1.12.0 documentation" href="#"/>
-        <link rel="next" title="Tutorial 1: Tailing a real-time log file" href="tutorials/1-real_time_output.html"/> 
+        <link rel="next" title="Default Arguments" href="sections/default_arguments.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -59,13 +59,6 @@
           </a>
 
           
-            
-            
-              <div class="version">
-                1.12.0
-              </div>
-            
-          
 
           
 <div role="search">
@@ -84,8 +77,82 @@
             
             
                 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/1-real_time_output.html">Tutorial 1: Tailing a real-time log file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/2-interacting_with_processes.html">Tutorial 2: Entering an SSH password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/default_arguments.html">Default Arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sections/faq.html#will-windows-be-supported">Will Windows be supported?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sections/redirection.html">Redirection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/special_arguments.html">Special keyword arguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sections/special_arguments.html#controlling-output">Controlling Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#out">_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#err">_err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#err-to-out">_err_to_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#encoding">_encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#decode-errors">_decode_errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#tee">_tee</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sections/special_arguments.html#execution">Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#fg">_fg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#bg">_bg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#env">_env</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#timeout">_timeout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#timeout-signal">_timeout_signal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#cwd">_cwd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#ok-code">_ok_code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#new-session">_new_session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#uid">_uid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#preexec-fn">_preexec_fn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sections/special_arguments.html#communication">Communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#in">_in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#piped">_piped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#iter">_iter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#iter-noblock">_iter_noblock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#with">_with</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#done">_done</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sections/special_arguments.html#ttys">TTYs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#tty-in">_tty_in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#tty-out">_tty_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#tty-size">_tty_size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sections/special_arguments.html#performance-optimization">Performance &amp; Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#in-bufsize">_in_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#out-bufsize">_out_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#internal-bufsize">_internal_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#no-out">_no_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#no-err">_no_err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#no-pipe">_no_pipe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sections/special_arguments.html#program-arguments">Program Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#long-sep">_long_sep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#long-prefix">_long_prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#arg-preprocess">_arg_preprocess</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sections/special_arguments.html#misc">Misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sections/special_arguments.html#log-msg">_log_msg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sections/sudo.html">Using Sudo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sections/sudo.html#sh-contrib-sudo">sh.contrib.sudo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sections/sudo.html#terminal-input">Terminal Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sections/sudo.html#string-input">String Input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sections/sudo.html#etc-sudoers-nopasswd">/etc/sudoers NOPASSWD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sections/sudo.html#sh-sudo">sh.sudo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sections/sudo.html#fg-true">_fg=True</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -132,55 +199,51 @@
             
   <div class="section" id="sh-version">
 <h1>sh 1.12.0<a class="headerlink" href="#sh-version" title="Permalink to this headline">¶</a></h1>
-<p>sh (previously <a class="reference external" href="http://pypi.python.org/pypi/pbs">pbs</a>) is a full-fledged
-subprocess interface for Python that
-allows you to call any program as if it were a function:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sh</span> <span class="k">import</span> <span class="n">ifconfig</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ifconfig</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">))</span>
+<div class="toctree-wrapper compound">
+</div>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/sh"><img alt="Version" src="https://img.shields.io/pypi/v/sh.svg?style=flat-square" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/sh"><img alt="Python Versions" src="https://img.shields.io/pypi/pyversions/sh.svg?style=flat-square" /></a>
+<a class="reference external image-reference" href="https://travis-ci.org/amoffat/sh"><img alt="Build Status" src="https://img.shields.io/travis/amoffat/sh.svg?style=flat-square" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/r/amoffat/sh?branch=master"><img alt="Coverage Status" src="https://img.shields.io/coveralls/amoffat/sh.svg?style=flat-square" /></a>
+<a class="reference external image-reference" href="https://github.com/amoffat/sh"><img alt="Github" src="https://img.shields.io/github/stars/amoffat/sh.svg?style=social&amp;label=Star" /></a>
+<p>sh is a full-fledged subprocess replacement for Python 2.6 - 3.5, PyPy and PyPy3
+that allows you to call any program as if it were a function</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">ifconfig</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ifconfig</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">wlan0</span>   <span class="n">Link</span> <span class="n">encap</span><span class="p">:</span><span class="n">Ethernet</span>  <span class="n">HWaddr</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
-        <span class="n">inet</span> <span class="n">addr</span><span class="p">:</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.100</span>  <span class="n">Bcast</span><span class="p">:</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.255</span>  <span class="n">Mask</span><span class="p">:</span><span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>
-        <span class="n">inet6</span> <span class="n">addr</span><span class="p">:</span> <span class="n">ffff</span><span class="p">::</span><span class="n">ffff</span><span class="p">:</span><span class="n">ffff</span><span class="p">:</span><span class="n">ffff</span><span class="p">:</span><span class="n">fff</span><span class="o">/</span><span class="mi">64</span> <span class="n">Scope</span><span class="p">:</span><span class="n">Link</span>
-        <span class="n">UP</span> <span class="n">BROADCAST</span> <span class="n">RUNNING</span> <span class="n">MULTICAST</span>  <span class="n">MTU</span><span class="p">:</span><span class="mi">1500</span>  <span class="n">Metric</span><span class="p">:</span><span class="mi">1</span>
-        <span class="n">RX</span> <span class="n">packets</span><span class="p">:</span><span class="mi">0</span> <span class="n">errors</span><span class="p">:</span><span class="mi">0</span> <span class="n">dropped</span><span class="p">:</span><span class="mi">0</span> <span class="n">overruns</span><span class="p">:</span><span class="mi">0</span> <span class="n">frame</span><span class="p">:</span><span class="mi">0</span>
-        <span class="n">TX</span> <span class="n">packets</span><span class="p">:</span><span class="mi">0</span> <span class="n">errors</span><span class="p">:</span><span class="mi">0</span> <span class="n">dropped</span><span class="p">:</span><span class="mi">0</span> <span class="n">overruns</span><span class="p">:</span><span class="mi">0</span> <span class="n">carrier</span><span class="p">:</span><span class="mi">0</span>
-        <span class="n">collisions</span><span class="p">:</span><span class="mi">0</span> <span class="n">txqueuelen</span><span class="p">:</span><span class="mi">1000</span>
-        <span class="n">RX</span> <span class="nb">bytes</span><span class="p">:</span><span class="mi">0</span> <span class="p">(</span><span class="mi">0</span> <span class="n">GB</span><span class="p">)</span>  <span class="n">TX</span> <span class="nb">bytes</span><span class="p">:</span><span class="mi">0</span> <span class="p">(</span><span class="mi">0</span> <span class="n">GB</span><span class="p">)</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>wlan0   Link encap:Ethernet  HWaddr 00:00:00:00:00:00
+        inet addr:192.168.1.100  Bcast:192.168.1.255  Mask:255.255.255.0
+        inet6 addr: ffff::ffff:ffff:ffff:fff/64 Scope:Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:0 (0 GB)  TX bytes:0 (0 GB)
 </pre></div>
 </div>
 <p>More examples:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># checkout master branch</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sh</span> <span class="kn">import</span> <span class="n">git</span><span class="p">,</span> <span class="n">ls</span><span class="p">,</span> <span class="n">wc</span>
+
+<span class="c1"># checkout master branch</span>
 <span class="n">git</span><span class="o">.</span><span class="n">checkout</span><span class="p">(</span><span class="s2">&quot;master&quot;</span><span class="p">)</span>
 
 <span class="c1"># print(the contents of this directory</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-l&quot;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;-l&quot;</span><span class="p">))</span>
 
 <span class="c1"># get the longest line of this file</span>
 <span class="n">longest_line</span> <span class="o">=</span> <span class="n">wc</span><span class="p">(</span><span class="n">__file__</span><span class="p">,</span> <span class="s2">&quot;-L&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that these aren&#8217;t Python functions, these are running the binary
-commands on your system dynamically by resolving your $PATH, much like Bash does.
-In this way, all the programs on your system are easily available to you
-from within Python.</p>
+<p>Note that these aren&#8217;t Python functions, these are running the binary commands
+on your system dynamically by resolving your <code class="docutils literal"><span class="pre">$PATH</span></code>, much like Bash does.  In
+this way, all the programs on your system are easily available to you from
+within Python.</p>
 <p>To install:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">sh</span>
+<div class="highlight-none"><div class="highlight"><pre><span></span>pip install sh
 </pre></div>
 </div>
-<p>Follow it on Github: <a class="reference external" href="http://github.com/amoffat/sh">http://github.com/amoffat/sh</a></p>
-</div>
-<div class="section" id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/1-real_time_output.html">Tutorial 1: Tailing a real-time log file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/2-interacting_with_processes.html">Tutorial 2: Entering an SSH password</a></li>
-</ul>
-</div>
-</div></blockquote>
 </div>
 <div class="section" id="basic-features">
 <h1>Basic Features<a class="headerlink" href="#basic-features" title="Permalink to this headline">¶</a></h1>
@@ -222,7 +285,7 @@ the absolute path of the executable:</p>
 <p>Commands that take multiple arguments, need to be invoked using separate
 string for each argument rather than single string for all the arguments
 together. One might expect the following to work, the way it works in
-<a href="#id1"><span class="problematic" id="id2">*</span></a>nix shell, but it doesn&#8217;t:</p>
+*nix shell, but it doesn&#8217;t:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sh</span> <span class="k">import</span> <span class="n">tar</span>
 <span class="n">tar</span><span class="p">(</span><span class="s2">&quot;cvf /tmp/test.tar /my/home/directory&quot;</span><span class="p">)</span>
 </pre></div>
@@ -290,7 +353,7 @@ keyword arguments:</p>
 <span id="background"></span><h2>Background processes<a class="headerlink" href="#background-processes" title="Permalink to this headline">¶</a></h2>
 <p>By default, each command runs and completes its process before returning.  If
 you have a long-running command, you can put it in the background with the
-<code class="docutils literal"><span class="pre">_bg=True</span></code> <a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>:</p>
+<code class="docutils literal"><span class="pre">_bg=True</span></code> <a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># blocks</span>
 <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;...3 seconds later&quot;</span><span class="p">)</span>
@@ -316,28 +379,14 @@ one command as the input to another, and sh will create a pipe between the two:<
 </div>
 <p>By default, any command that is piping another command in waits for it to
 complete.  This behavior can be changed with the <code class="docutils literal"><span class="pre">_piped</span></code>
-<a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> on the command being
+<a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> on the command being
 piped, which tells it not to complete before sending its data, but to send
 its data incrementally.  See <a class="reference internal" href="#advanced-piping"><span class="std std-ref">Advanced piping</span></a> for examples of this.</p>
-</div>
-<div class="section" id="redirection">
-<span id="id3"></span><h2>Redirection<a class="headerlink" href="#redirection" title="Permalink to this headline">¶</a></h2>
-<p>sh can redirect the standard and error output streams of a process to a file
-or file-like object.  This is done with the special <code class="docutils literal"><span class="pre">_out</span></code> and <code class="docutils literal"><span class="pre">_err</span></code>
-<a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>. You can pass a filename
-or a file object as the argument value.
-When the name of an already existing file is passed, the contents of the file
-will be overwritten:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span><span class="p">(</span><span class="n">_out</span><span class="o">=</span><span class="s2">&quot;files.list&quot;</span><span class="p">)</span>
-<span class="n">ls</span><span class="p">(</span><span class="s2">&quot;nonexistent&quot;</span><span class="p">,</span> <span class="n">_err</span><span class="o">=</span><span class="s2">&quot;error.txt&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>You can also redirect to a function.  See <a class="reference internal" href="#callbacks"><span class="std std-ref">STDOUT/ERR callbacks</span></a>.</p>
 </div>
 <div class="section" id="stdin-processing">
 <span id="stdin"></span><h2>STDIN Processing<a class="headerlink" href="#stdin-processing" title="Permalink to this headline">¶</a></h2>
 <p>STDIN is sent to a process directly by using a command&#8217;s <code class="docutils literal"><span class="pre">_in</span></code>
-<a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>:</p>
+<a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cat</span><span class="p">(</span><span class="n">_in</span><span class="o">=</span><span class="s2">&quot;test&quot;</span><span class="p">))</span> <span class="c1"># prints &quot;test&quot;</span>
 </pre></div>
 </div>
@@ -377,7 +426,7 @@ set for whatever command that user is running, otherwise <code class="docutils l
 </div>
 </div>
 <div class="section" id="exit-codes">
-<span id="id4"></span><h2>Exit codes<a class="headerlink" href="#exit-codes" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Exit codes<a class="headerlink" href="#exit-codes" title="Permalink to this headline">¶</a></h2>
 <p>Normal processes exit with exit code 0.  This can be seen through a
 command&#8217;s <code class="docutils literal"><span class="pre">exit_code</span></code> property:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">ls</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
@@ -407,7 +456,7 @@ return code will be -1.</p>
 <p>Some programs return strange error codes even though they succeed.  If you know
 which code a program might returns and you don&#8217;t want to deal with doing
 no-op exception handling, you can use the <code class="docutils literal"><span class="pre">_ok_code</span></code>
-<a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>:</p>
+<a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sh</span>
 <span class="n">sh</span><span class="o">.</span><span class="n">weird_program</span><span class="p">(</span><span class="n">_ok_code</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
@@ -444,7 +493,7 @@ has edge cases that break with sh.</p>
 <div class="section" id="advanced-features">
 <h1>Advanced Features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="baking">
-<span id="id5"></span><h2>Baking<a class="headerlink" href="#baking" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Baking<a class="headerlink" href="#baking" title="Permalink to this headline">¶</a></h2>
 <p>sh is capable of &#8220;baking&#8221; arguments into commands.  This is similar to the
 stdlib functools.partial wrapper.  Example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sh</span> <span class="k">import</span> <span class="n">ls</span>
@@ -485,7 +534,7 @@ can call anything on the server easily:</p>
 </div>
 </div>
 <div class="section" id="with-contexts">
-<span id="id6"></span><h2>&#8216;With&#8217; contexts<a class="headerlink" href="#with-contexts" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>&#8216;With&#8217; contexts<a class="headerlink" href="#with-contexts" title="Permalink to this headline">¶</a></h2>
 <p>Commands can be run within a <code class="docutils literal"><span class="pre">with</span></code> context.  Popular commands using this
 might be <code class="docutils literal"><span class="pre">sudo</span></code> or <code class="docutils literal"><span class="pre">fakeroot</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sudo</span><span class="p">:</span>
@@ -494,7 +543,7 @@ might be <code class="docutils literal"><span class="pre">sudo</span></code> or 
 </div>
 <p>If you need
 to run a command in a with context and pass in arguments, for example, specifying
-a -p prompt with sudo, you need to use the <code class="docutils literal"><span class="pre">_with</span></code> <a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>.
+a -p prompt with sudo, you need to use the <code class="docutils literal"><span class="pre">_with</span></code> <a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>.
 This let&#8217;s the command know that it&#8217;s being run from a with context so
 it can behave correctly:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">sudo</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">_with</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -510,7 +559,7 @@ set for whatever command that user is running, otherwise <code class="docutils l
 <div class="section" id="iterating-over-output">
 <span id="iterable"></span><h2>Iterating over output<a class="headerlink" href="#iterating-over-output" title="Permalink to this headline">¶</a></h2>
 <p>You can iterate over long-running commands with the <code class="docutils literal"><span class="pre">_iter</span></code>
-<a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>.  This creates an iterator
+<a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a>.  This creates an iterator
 (technically, a generator) that you can
 loop over:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sh</span> <span class="k">import</span> <span class="n">tail</span>
@@ -534,7 +583,7 @@ you&#8217;ll receive a chunk of output, as normal.</p>
 <span id="callbacks"></span><h2>STDOUT/ERR callbacks<a class="headerlink" href="#stdout-err-callbacks" title="Permalink to this headline">¶</a></h2>
 <p>sh can use callbacks to process output incrementally.  This is done much like
 redirection: by passing an argument to either the <code class="docutils literal"><span class="pre">_out</span></code> or <code class="docutils literal"><span class="pre">_err</span></code> (or both)
-<a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword arguments</span></a>, <strong>except this time, you pass
+<a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword arguments</span></a>, <strong>except this time, you pass
 a callable.</strong>  This callable
 will be called for each line (or chunk) of data that your command outputs:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sh</span> <span class="k">import</span> <span class="n">tail</span>
@@ -558,12 +607,12 @@ from a callback.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last"><code class="docutils literal"><span class="pre">_out</span></code> and <code class="docutils literal"><span class="pre">_err</span></code> don&#8217;t have to specify callables.  It can be a file-like
-object, a Queue, a StringIO instance, or a filename.  See <a class="reference internal" href="#redirection"><span class="std std-ref">Redirection</span></a>
+object, a Queue, a StringIO instance, or a filename.  See <a class="reference internal" href="sections/redirection.html#redirection"><span class="std std-ref">Redirection</span></a>
 for examples.</p>
 </div>
 </div>
 <div class="section" id="interactive-callbacks">
-<span id="id7"></span><h2>Interactive callbacks<a class="headerlink" href="#interactive-callbacks" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Interactive callbacks<a class="headerlink" href="#interactive-callbacks" title="Permalink to this headline">¶</a></h2>
 <p>Each command launched through sh has an internal STDIN
 <a class="reference external" href="http://docs.python.org/library/queue.html#queue-objects">Queue</a>
 that can be used from callbacks:</p>
@@ -604,7 +653,7 @@ send a general <a class="reference external" href="http://docs.python.org/librar
 </div>
 </div>
 <div class="section" id="buffer-sizes">
-<span id="id9"></span><h2>Buffer sizes<a class="headerlink" href="#buffer-sizes" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Buffer sizes<a class="headerlink" href="#buffer-sizes" title="Permalink to this headline">¶</a></h2>
 <p>Buffer sizes are important to consider when you begin to use
 <a class="reference internal" href="#iterable"><span class="std std-ref">iterators</span></a>,
 <a class="reference internal" href="#advanced-piping"><span class="std std-ref">advanced piping</span></a>,
@@ -628,7 +677,7 @@ this instead:</p>
 </div>
 <p>Because now we set STDOUT to also be unbuffered with <code class="docutils literal"><span class="pre">_out_bufsize=0</span></code> the result is
 &#8220;T&#8221;, &#8220;E&#8221;, &#8220;S&#8221;, &#8220;T&#8221;, &#8220;I&#8221;, &#8220;N&#8221;, &#8220;G&#8221;, as expected.</p>
-<p>There are 2 bufsize <a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword arguments</span></a>:
+<p>There are 2 bufsize <a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword arguments</span></a>:
 <code class="docutils literal"><span class="pre">_in_bufsize</span></code> and <code class="docutils literal"><span class="pre">_out_bufsize</span></code>.  They may be set to the following values:</p>
 <dl class="glossary docutils">
 <dt id="term-0">0</dt>
@@ -648,7 +697,7 @@ is also consumed/flushed.</dd>
 </dl>
 </div>
 <div class="section" id="advanced-piping">
-<span id="id10"></span><h2>Advanced piping<a class="headerlink" href="#advanced-piping" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>Advanced piping<a class="headerlink" href="#advanced-piping" title="Permalink to this headline">¶</a></h2>
 <p>By default, all piped commands execute sequentially.  What this means is that the
 inner command executes first, then sends its data to the outer command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">wc</span><span class="p">(</span><span class="n">ls</span><span class="p">(</span><span class="s2">&quot;/etc&quot;</span><span class="p">,</span> <span class="s2">&quot;-1&quot;</span><span class="p">),</span> <span class="s2">&quot;-l&quot;</span><span class="p">))</span>
@@ -663,7 +712,7 @@ parallelism, this isn&#8217;t good enough.  Take the following example:</p>
 </div>
 <p><strong>This won&#8217;t work</strong> because the <code class="docutils literal"><span class="pre">tail</span> <span class="pre">-f</span></code> command never finishes.  What you
 need is for <code class="docutils literal"><span class="pre">tail</span></code> to send its output to <code class="docutils literal"><span class="pre">tr</span></code> as it receives it.  This is where
-the <code class="docutils literal"><span class="pre">_piped</span></code> <a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> comes in handy:</p>
+the <code class="docutils literal"><span class="pre">_piped</span></code> <a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> comes in handy:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tr</span><span class="p">(</span><span class="n">tail</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;test.log&quot;</span><span class="p">,</span> <span class="n">_piped</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="s2">&quot;[:upper:]&quot;</span><span class="p">,</span> <span class="s2">&quot;[:lower:]&quot;</span><span class="p">,</span> <span class="n">_iter</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
@@ -673,8 +722,8 @@ it should send its output line-by-line to <code class="docutils literal"><span c
 stdout, but you can easily make it send stderr instead by using <code class="docutils literal"><span class="pre">_piped=&quot;err&quot;</span></code></p>
 </div>
 <div class="section" id="environments">
-<span id="id11"></span><h2>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> <code class="docutils literal"><span class="pre">_env</span></code> allows you
+<span id="id8"></span><h2>Environments<a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> <code class="docutils literal"><span class="pre">_env</span></code> allows you
 to pass a dictionary of environement variables and their corresponding values:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sh</span>
 <span class="n">sh</span><span class="o">.</span><span class="n">google_chrome</span><span class="p">(</span><span class="n">_env</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;SOCKS_SERVER&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost:1234&quot;</span><span class="p">})</span>
@@ -698,7 +747,7 @@ try something like this:</p>
 </div>
 </div>
 <div class="section" id="ttys">
-<span id="id12"></span><h2>TTYs<a class="headerlink" href="#ttys" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>TTYs<a class="headerlink" href="#ttys" title="Permalink to this headline">¶</a></h2>
 <p>Some applications behave differently depending on whether their standard file
 descriptors are attached to a <a class="reference external" href="http://en.wikipedia.org/wiki/Pseudo_terminal#Applications">TTY</a> or not. For
 example, <a class="reference external" href="http://git-scm.com/">git</a> will disable features intended for humans
@@ -708,7 +757,7 @@ other programs, such as SSH (without <code class="docutils literal"><span class=
 TTY/terminal.</p>
 <p>By default, sh emulates a TTY for STDOUT but not for STDIN. You can change
 the default behavior by passing in extra
-<a class="reference internal" href="special_arguments.html#special-arguments"><span class="std std-ref">special keyword arguments</span></a>, as such:</p>
+<a class="reference internal" href="sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword arguments</span></a>, as such:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -742,7 +791,7 @@ the default behavior by passing in extra
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tutorials/1-real_time_output.html" class="btn btn-neutral float-right" title="Tutorial 1: Tailing a real-time log file" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sections/default_arguments.html" class="btn btn-neutral float-right" title="Default Arguments" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -752,7 +801,7 @@ the default behavior by passing in extra
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2013, Andrew Moffat.
+        &copy; Copyright 2017, Andrew Moffat.
 
     </p>
   </div>

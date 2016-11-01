@@ -1,14 +1,41 @@
 sh |version|
 ============
 
-sh (previously `pbs <http://pypi.python.org/pypi/pbs>`_) is a full-fledged
-subprocess interface for Python that
-allows you to call any program as if it were a function::
+.. toctree::
+    :glob:
+    :maxdepth: 2
+    :hidden:
+
+    sections/*
+
+.. image:: https://img.shields.io/pypi/v/sh.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/sh
+    :alt: Version
+.. image:: https://img.shields.io/pypi/pyversions/sh.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/sh
+    :alt: Python Versions
+.. image:: https://img.shields.io/travis/amoffat/sh.svg?style=flat-square
+    :target: https://travis-ci.org/amoffat/sh
+    :alt: Build Status
+.. image:: https://img.shields.io/coveralls/amoffat/sh.svg?style=flat-square
+    :target: https://coveralls.io/r/amoffat/sh?branch=master
+    :alt: Coverage Status
+.. image:: https://img.shields.io/github/stars/amoffat/sh.svg?style=social&label=Star
+    :target: https://github.com/amoffat/sh
+    :alt: Github
+
+sh is a full-fledged subprocess replacement for Python 2.6 - 3.5, PyPy and PyPy3
+that allows you to call any program as if it were a function
+
+
+.. code-block:: python
 
 	from sh import ifconfig
 	print(ifconfig("wlan0"))
 	
-Output::
+Output:
+
+.. code-block:: none
 
 	wlan0	Link encap:Ethernet  HWaddr 00:00:00:00:00:00  
 		inet addr:192.168.1.100  Bcast:192.168.1.255  Mask:255.255.255.0
@@ -19,38 +46,34 @@ Output::
 		collisions:0 txqueuelen:1000 
 		RX bytes:0 (0 GB)  TX bytes:0 (0 GB)
 		
-More examples::
+More examples:
+    
+.. code-block:: python
 
-	# checkout master branch
-	git.checkout("master")
+    from sh import git, ls, wc
+
+    # checkout master branch
+    git.checkout("master")
+
+    # print(the contents of this directory 
+    print(ls("-l"))
+
+    # get the longest line of this file
+    longest_line = wc(__file__, "-L")
+
 	
-	# print(the contents of this directory 
-	print(ls("-l"))
-	
-	# get the longest line of this file
-	longest_line = wc(__file__, "-L")
-	
-Note that these aren't Python functions, these are running the binary
-commands on your system dynamically by resolving your $PATH, much like Bash does.
-In this way, all the programs on your system are easily available to you
-from within Python.
+Note that these aren't Python functions, these are running the binary commands
+on your system dynamically by resolving your ``$PATH``, much like Bash does.  In
+this way, all the programs on your system are easily available to you from
+within Python.
 
 
-To install::
+To install:
+
+.. code-block:: none
 
     pip install sh
     
-Follow it on Github: http://github.com/amoffat/sh
-
-Tutorials
-=========
-
-	.. toctree::
-		:glob:
-		:maxdepth: 1
-	   
-		/tutorials/*
-   
 
 Basic Features
 ==============
@@ -94,7 +117,7 @@ Multiple arguments
 Commands that take multiple arguments, need to be invoked using separate 
 string for each argument rather than single string for all the arguments
 together. One might expect the following to work, the way it works in 
-*nix shell, but it doesn't::
+\*nix shell, but it doesn't::
 
 		from sh import tar
 		tar("cvf /tmp/test.tar /my/home/directory")
@@ -199,23 +222,6 @@ piped, which tells it not to complete before sending its data, but to send
 its data incrementally.  See :ref:`advanced_piping` for examples of this.
 	
 
-.. _redirection:
-
-Redirection
------------
-
-sh can redirect the standard and error output streams of a process to a file
-or file-like object.  This is done with the special ``_out`` and ``_err``
-:ref:`special keyword argument <special_arguments>`. You can pass a filename
-or a file object as the argument value.
-When the name of an already existing file is passed, the contents of the file
-will be overwritten::
-
-	ls(_out="files.list")
-	ls("nonexistent", _err="error.txt")
-	
-You can also redirect to a function.  See :ref:`callbacks`.
-	
 
 .. _stdin:
 

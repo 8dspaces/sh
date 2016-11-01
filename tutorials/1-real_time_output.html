@@ -33,9 +33,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="sh 1.12.0 documentation" href="../index.html"/>
-        <link rel="next" title="Tutorial 2: Entering an SSH password" href="2-interacting_with_processes.html"/>
-        <link rel="prev" title="sh 1.12.0" href="../index.html"/> 
+    <link rel="top" title="sh 1.12.0 documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -60,13 +58,6 @@
           </a>
 
           
-            
-            
-              <div class="version">
-                1.12.0
-              </div>
-            
-          
 
           
 <div role="search">
@@ -84,12 +75,83 @@
           
             
             
-                <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial 1: Tailing a real-time log file</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#would-you-like-to-know-more">Would you like to know more?</a></li>
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../sections/default_arguments.html">Default Arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sections/faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sections/faq.html#will-windows-be-supported">Will Windows be supported?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="2-interacting_with_processes.html">Tutorial 2: Entering an SSH password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sections/redirection.html">Redirection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sections/special_arguments.html">Special keyword arguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sections/special_arguments.html#controlling-output">Controlling Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#out">_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#err">_err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#err-to-out">_err_to_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#encoding">_encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#decode-errors">_decode_errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#tee">_tee</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/special_arguments.html#execution">Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#fg">_fg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#bg">_bg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#env">_env</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#timeout">_timeout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#timeout-signal">_timeout_signal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#cwd">_cwd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#ok-code">_ok_code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#new-session">_new_session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#uid">_uid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#preexec-fn">_preexec_fn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/special_arguments.html#communication">Communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#in">_in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#piped">_piped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#iter">_iter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#iter-noblock">_iter_noblock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#with">_with</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#done">_done</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/special_arguments.html#ttys">TTYs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#tty-in">_tty_in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#tty-out">_tty_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#tty-size">_tty_size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/special_arguments.html#performance-optimization">Performance &amp; Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#in-bufsize">_in_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#out-bufsize">_out_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#internal-bufsize">_internal_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#no-out">_no_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#no-err">_no_err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#no-pipe">_no_pipe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/special_arguments.html#program-arguments">Program Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#long-sep">_long_sep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#long-prefix">_long_prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#arg-preprocess">_arg_preprocess</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/special_arguments.html#misc">Misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sections/special_arguments.html#log-msg">_log_msg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sections/sudo.html">Using Sudo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sections/sudo.html#sh-contrib-sudo">sh.contrib.sudo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sections/sudo.html#terminal-input">Terminal Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sections/sudo.html#string-input">String Input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/sudo.html#etc-sudoers-nopasswd">/etc/sudoers NOPASSWD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/sudo.html#sh-sudo">sh.sudo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sections/sudo.html#fg-true">_fg=True</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -146,7 +208,7 @@ a specific pattern, then responding to that value immediately:</p>
         <span class="n">send_an_email_to_support</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">_iter</span></code>  <a class="reference internal" href="../special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> takes a
+<p>The <code class="docutils literal"><span class="pre">_iter</span></code>  <a class="reference internal" href="../sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> takes a
 command that would normally block until completion, and turns its output
 into a real-time iterable.  See <a class="reference internal" href="../index.html#iterable"><span class="std std-ref">Iterating over output</span></a>.</p>
 <p>Of course, you can do more than just tail log files.  Any program that
@@ -185,15 +247,14 @@ an easier method via callbacks:</p>
 <span class="n">process</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal"><span class="pre">_out</span></code> <a class="reference internal" href="../special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> lets you
+<p>The <code class="docutils literal"><span class="pre">_out</span></code> <a class="reference internal" href="../sections/special_arguments.html#special-arguments"><span class="std std-ref">special keyword argument</span></a> lets you
 to assign a callback to STDOUT.  This callback will receive each line of
 output from <code class="docutils literal"><span class="pre">tail</span> <span class="pre">-f</span></code> and allow you to do the same processing that we
 did earlier.  See <a class="reference internal" href="../index.html#callbacks"><span class="std std-ref">STDOUT/ERR callbacks</span></a>.</p>
 <div class="section" id="would-you-like-to-know-more">
 <h2>Would you like to know more?<a class="headerlink" href="#would-you-like-to-know-more" title="Permalink to this headline">¶</a></h2>
-<p>sh (previously <a class="reference external" href="http://pypi.python.org/pypi/pbs">pbs</a>) is a full-fledged
-subprocess interface for Python that
-allows you to call any program as if it were a function:</p>
+<p>sh is a full-fledged subprocess interface for Python that allows you to call any
+program as if it were a function:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sh</span> <span class="k">import</span> <span class="n">ifconfig</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ifconfig</span><span class="p">(</span><span class="s2">&quot;wlan0&quot;</span><span class="p">))</span>
 </pre></div>
@@ -210,21 +271,12 @@ allows you to call any program as if it were a function:</p>
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="2-interacting_with_processes.html" class="btn btn-neutral float-right" title="Tutorial 2: Entering an SSH password" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral" title="sh 1.12.0" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2013, Andrew Moffat.
+        &copy; Copyright 2017, Andrew Moffat.
 
     </p>
   </div>

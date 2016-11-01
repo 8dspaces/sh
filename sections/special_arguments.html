@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Special keyword arguments &mdash; sh 1.12.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="sh 1.12.0 documentation" href="../index.html"/>
+        <link rel="next" title="Using Sudo" href="sudo.html"/>
+        <link rel="prev" title="Redirection" href="redirection.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sh
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="default_arguments.html">Default Arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#will-windows-be-supported">Will Windows be supported?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="redirection.html">Redirection</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Special keyword arguments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#controlling-output">Controlling Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#out">_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#err">_err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#err-to-out">_err_to_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#encoding">_encoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decode-errors">_decode_errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tee">_tee</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#execution">Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fg">_fg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bg">_bg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#env">_env</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeout">_timeout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeout-signal">_timeout_signal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cwd">_cwd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ok-code">_ok_code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#new-session">_new_session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#uid">_uid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preexec-fn">_preexec_fn</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#communication">Communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in">_in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#piped">_piped</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iter">_iter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#iter-noblock">_iter_noblock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#with">_with</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#done">_done</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ttys">TTYs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tty-in">_tty_in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tty-out">_tty_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tty-size">_tty_size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-optimization">Performance &amp; Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-bufsize">_in_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#out-bufsize">_out_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#internal-bufsize">_internal_bufsize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#no-out">_no_out</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#no-err">_no_err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#no-pipe">_no_pipe</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#program-arguments">Program Arguments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#long-sep">_long_sep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-prefix">_long_prefix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arg-preprocess">_arg_preprocess</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#misc">Misc</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#log-msg">_log_msg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sudo.html">Using Sudo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sudo.html#sh-contrib-sudo">sh.contrib.sudo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sudo.html#terminal-input">Terminal Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sudo.html#string-input">String Input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="sudo.html#etc-sudoers-nopasswd">/etc/sudoers NOPASSWD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sudo.html#sh-sudo">sh.sudo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sudo.html#fg-true">_fg=True</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">sh</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Special keyword arguments</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/sections/special_arguments.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="special-arguments"></span><div class="section" id="special-keyword-arguments">
+<h1>Special keyword arguments<a class="headerlink" href="#special-keyword-arguments" title="Permalink to this headline">¶</a></h1>
+<p>These arguments alter the way a command is launched or run.  You can use them on
+any command that you run, but some may not be used together.  <code class="docutils literal"><span class="pre">sh</span></code> will tell
+you if there are conflicts.</p>
+<p>To set default special keyword arguments on <em>every</em> command run, you may use
+<span class="xref std std-ref">default_kwargs</span>.</p>
+<div class="section" id="controlling-output">
+<h2>Controlling Output<a class="headerlink" href="#controlling-output" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="out">
+<h3>_out<a class="headerlink" href="#out" title="Permalink to this headline">¶</a></h3>
+<p>What to redirect STDOUT to.  If this is a string, it will be treated as a file
+name.  You may also pass a file object (or file-like object), as well as a
+StringIO object.  See <a class="reference internal" href="redirection.html#redirection"><span class="std std-ref">Redirection</span></a>.</p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sh</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">_out</span><span class="o">=</span><span class="s2">&quot;/tmp/output&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="redirection.html#redirection"><span class="std std-ref">Redirection</span></a></p>
+</div>
+</div>
+<div class="section" id="err">
+<h3>_err<a class="headerlink" href="#err" title="Permalink to this headline">¶</a></h3>
+<p>What to redirect STDERR to.  See <code class="docutils literal"><span class="pre">_out</span></code> above.</p>
+</div>
+<div class="section" id="err-to-out">
+<h3>_err_to_out<a class="headerlink" href="#err-to-out" title="Permalink to this headline">¶</a></h3>
+<p>If True, this redirects the STDERR stream to the STDOUT stream, so that any
+returned data from a command will be both from STDOUT and STDERR.</p>
+</div>
+<div class="section" id="encoding">
+<h3>_encoding<a class="headerlink" href="#encoding" title="Permalink to this headline">¶</a></h3>
+<p>The character encoding of the process&#8217;s STDOUT.  By default, this is &#8220;utf8&#8221;.</p>
+</div>
+<div class="section" id="decode-errors">
+<h3>_decode_errors<a class="headerlink" href="#decode-errors" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.07.0.</span></p>
+</div>
+<p>This is how Python should handle decoding errors of the process&#8217;s output.
+By default, this is &#8220;strict&#8221;, but you can use any value that&#8217;s valid
+to a string&#8217;s <code class="docutils literal"><span class="pre">.decode()</span></code> method, such as &#8220;ignore&#8221;.</p>
+</div>
+<div class="section" id="tee">
+<h3>_tee<a class="headerlink" href="#tee" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.07.0.</span></p>
+</div>
+<p>As of 1.07.0, any time redirection is used, either for stdout or stderr, the
+respective internal buffers are not filled.  For example, if you&#8217;re downloading
+a file and using a callback on stdout, the internal stdout buffer, nor the pipe
+buffer be filled with data from stdout.  This option forces those buffers to be
+filled anyways, in effect &#8220;tee-ing&#8221; the output into two places (the
+callback/redirect handler, and the internal buffers).</p>
+</div>
+</div>
+<div class="section" id="execution">
+<h2>Execution<a class="headerlink" href="#execution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fg">
+<span id="id1"></span><h3>_fg<a class="headerlink" href="#fg" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.0.</span></p>
+</div>
+<p>Default value: <code class="docutils literal"><span class="pre">False</span></code></p>
+</div>
+<div class="section" id="bg">
+<h3>_bg<a class="headerlink" href="#bg" title="Permalink to this headline">¶</a></h3>
+<p>Default value: <code class="docutils literal"><span class="pre">False</span></code></p>
+<p>Runs a command in the background.  The command will return immediately, and you
+will have to run <code class="docutils literal"><span class="pre">.wait()</span></code> on it to allow it to finish.  See
+<a class="reference internal" href="../index.html#background"><span class="std std-ref">Background processes</span></a>.</p>
+</div>
+<div class="section" id="env">
+<h3>_env<a class="headerlink" href="#env" title="Permalink to this headline">¶</a></h3>
+<p>A dictionary defining the only environment variables that will be made
+accessible to the process.  If not specified, the calling process&#8217;s environment
+variables are used.  See <a class="reference internal" href="../index.html#environments"><span class="std std-ref">Environments</span></a>.</p>
+</div>
+<div class="section" id="timeout">
+<span id="id2"></span><h3>_timeout<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
+<p>How much time, in seconds, we should give the process to complete.  If the
+process does not finish within the timeout, it will be sent the signal defined
+by <a class="reference internal" href="#timeout-signal"><span class="std std-ref">_timeout_signal</span></a>.</p>
+</div>
+<div class="section" id="timeout-signal">
+<span id="id3"></span><h3>_timeout_signal<a class="headerlink" href="#timeout-signal" title="Permalink to this headline">¶</a></h3>
+<p>Default value: <code class="docutils literal"><span class="pre">signal.SIGKILL</span></code></p>
+<p>The signal to be sent to the process if <a class="reference internal" href="#timeout"><span class="std std-ref">_timeout</span></a> is not <code class="docutils literal"><span class="pre">None</span></code>.</p>
+</div>
+<div class="section" id="cwd">
+<h3>_cwd<a class="headerlink" href="#cwd" title="Permalink to this headline">¶</a></h3>
+<p>Default value: <code class="docutils literal"><span class="pre">None</span></code></p>
+<p>A string that sets the current working directory of the process.</p>
+</div>
+<div class="section" id="ok-code">
+<h3>_ok_code<a class="headerlink" href="#ok-code" title="Permalink to this headline">¶</a></h3>
+<p>Default value: <code class="docutils literal"><span class="pre">0</span></code></p>
+<p>Either an integer, a list, or a tuple containing the exit code(s) that are
+considered &#8220;ok&#8221;, or in other words: do not raise an exception.  Some misbehaved
+programs use exit codes other than 0 to indicate success.  See
+<a class="reference internal" href="../index.html#exit-codes"><span class="std std-ref">Exit codes</span></a>.</p>
+</div>
+<div class="section" id="new-session">
+<h3>_new_session<a class="headerlink" href="#new-session" title="Permalink to this headline">¶</a></h3>
+<p>Default value: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>Determines if our forked process will be executed in its own session via
+<a class="reference external" href="https://docs.python.org/3.5/library/os.html#os.setsid">os.setsid()</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If <code class="docutils literal"><span class="pre">_new_session</span></code> is <code class="docutils literal"><span class="pre">False</span></code>, the forked process will be put into its
+own group via <code class="docutils literal"><span class="pre">os.setpgrp()</span></code>.  This way, the forked process, and all of
+it&#8217;s children, are always alone in their own group that may be signalled
+directly, regardless of the value of <code class="docutils literal"><span class="pre">_new_session</span></code>.</p>
+</div>
+</div>
+<div class="section" id="uid">
+<h3>_uid<a class="headerlink" href="#uid" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.0.</span></p>
+</div>
+<p>Default value: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div>
+<div class="section" id="preexec-fn">
+<h3>_preexec_fn<a class="headerlink" href="#preexec-fn" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.0.</span></p>
+</div>
+<p>Default value: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div>
+</div>
+<div class="section" id="communication">
+<h2>Communication<a class="headerlink" href="#communication" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="in">
+<h3>_in<a class="headerlink" href="#in" title="Permalink to this headline">¶</a></h3>
+<p>Specifies an argument for the process to use as its standard input.  This
+may be a string, a <a class="reference external" href="http://docs.python.org/library/queue.html#queue-objects">Queue</a>,
+a file object, or any iterable.  See <a class="reference internal" href="../index.html#stdin"><span class="std std-ref">STDIN Processing</span></a>.</p>
+</div>
+<div class="section" id="piped">
+<h3>_piped<a class="headerlink" href="#piped" title="Permalink to this headline">¶</a></h3>
+<p>May be <code class="docutils literal"><span class="pre">True</span></code>, <code class="docutils literal"><span class="pre">&quot;out&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;err&quot;</span></code>.  Signals a command that it is being
+used as the input to another command, so it should return its output
+incrementally as it receives it, instead of aggregating it all at once.  See
+<a class="reference internal" href="../index.html#advanced-piping"><span class="std std-ref">Advanced piping</span></a>.</p>
+</div>
+<div class="section" id="iter">
+<h3>_iter<a class="headerlink" href="#iter" title="Permalink to this headline">¶</a></h3>
+<p>May be <code class="docutils literal"><span class="pre">True</span></code>, <code class="docutils literal"><span class="pre">&quot;out&quot;</span></code>, or <code class="docutils literal"><span class="pre">&quot;err&quot;</span></code>.  Puts a command in iterable mode.  In
+this mode, you can use a <code class="docutils literal"><span class="pre">for</span></code> or <code class="docutils literal"><span class="pre">while</span></code> loop to iterate over a command&#8217;s
+output in real-time.  See <a class="reference internal" href="../index.html#iterable"><span class="std std-ref">Iterating over output</span></a>.</p>
+</div>
+<div class="section" id="iter-noblock">
+<h3>_iter_noblock<a class="headerlink" href="#iter-noblock" title="Permalink to this headline">¶</a></h3>
+<p>Same as <code class="docutils literal"><span class="pre">_iter</span></code>, except the loop will not block if there is no output to
+iterate over.  Instead, the output from the command will be
+<code class="docutils literal"><span class="pre">errno.EWOULDBLOCK</span></code>.  See <a class="reference internal" href="../index.html#iterable"><span class="std std-ref">Iterating over output</span></a>.</p>
+</div>
+<div class="section" id="with">
+<h3>_with<a class="headerlink" href="#with" title="Permalink to this headline">¶</a></h3>
+<p>Explicitly tells us that we&#8217;re running a command in a <code class="docutils literal"><span class="pre">with</span></code> context.  This is
+only necessary if you&#8217;re using a command in a <code class="docutils literal"><span class="pre">with</span></code> context <strong>and</strong> passing
+parameters to it.  See <a class="reference internal" href="../index.html#with-contexts"><span class="std std-ref">&#8216;With&#8217; contexts</span></a>.</p>
+</div>
+<div class="section" id="done">
+<h3>_done<a class="headerlink" href="#done" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.11.0.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="ttys">
+<h2>TTYs<a class="headerlink" href="#ttys" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tty-in">
+<h3>_tty_in<a class="headerlink" href="#tty-in" title="Permalink to this headline">¶</a></h3>
+<p>Default value: <code class="docutils literal"><span class="pre">False</span></code>, meaning a <a class="reference external" href="http://docs.python.org/library/os.html#os.pipe">pipe</a> will be used.</p>
+<p>If <code class="docutils literal"><span class="pre">True</span></code>, sh creates a <a class="reference external" href="http://en.wikipedia.org/wiki/Pseudo_terminal">TTY</a>
+for STDIN, essentially emulating a terminal, as if your command was entered from
+the commandline.  This is necessary for commands that require STDIN to be a TTY.</p>
+</div>
+<div class="section" id="tty-out">
+<h3>_tty_out<a class="headerlink" href="#tty-out" title="Permalink to this headline">¶</a></h3>
+<p>Default value: <code class="docutils literal"><span class="pre">True</span></code></p>
+<p>If <code class="docutils literal"><span class="pre">True</span></code>, sh creates a <a class="reference external" href="http://en.wikipedia.org/wiki/Pseudo_terminal#Applications">TTY</a>
+for STDOUT, otherwise use a <a class="reference external" href="http://docs.python.org/library/os.html#os.pipe">pipe</a>.
+This is necessary for commands that require STDOUT to be a TTY.</p>
+</div>
+<div class="section" id="tty-size">
+<h3>_tty_size<a class="headerlink" href="#tty-size" title="Permalink to this headline">¶</a></h3>
+<p>Default value: <code class="docutils literal"><span class="pre">(20,</span> <span class="pre">80)</span></code></p>
+<p>The (rows, columns) of stdout&#8217;s TTY.  Changing this may affect how much your
+program prints per line, for example.</p>
+</div>
+</div>
+<div class="section" id="performance-optimization">
+<h2>Performance &amp; Optimization<a class="headerlink" href="#performance-optimization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="in-bufsize">
+<h3>_in_bufsize<a class="headerlink" href="#in-bufsize" title="Permalink to this headline">¶</a></h3>
+<p>The STDIN buffer size.  0 for unbuffered (the default), 1 for line
+buffered, anything else for a buffer of that amount.  See <a class="reference internal" href="../index.html#buffer-sizes"><span class="std std-ref">Buffer sizes</span></a></p>
+</div>
+<div class="section" id="out-bufsize">
+<h3>_out_bufsize<a class="headerlink" href="#out-bufsize" title="Permalink to this headline">¶</a></h3>
+<p>The STDOUT/ERR buffer size.  0 for unbuffered, 1 for line buffered (the
+default), anything else for a buffer of that amount.  See <a class="reference internal" href="../index.html#buffer-sizes"><span class="std std-ref">Buffer sizes</span></a></p>
+</div>
+<div class="section" id="internal-bufsize">
+<h3>_internal_bufsize<a class="headerlink" href="#internal-bufsize" title="Permalink to this headline">¶</a></h3>
+<p>How much of STDOUT/ERR your command will store internally.  This value
+represents the <em>number of bufsize chunks</em> not the total number of bytes.  For
+example, if this value is 100, and STDOUT is line buffered, you will be able to
+retrieve 100 lines from STDOUT.  If STDOUT is unbuffered, you will be able to
+retrieve only 100 characters.</p>
+</div>
+<div class="section" id="no-out">
+<h3>_no_out<a class="headerlink" href="#no-out" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.07.0.</span></p>
+</div>
+<p>Disables STDOUT being internally stored.  This is useful for commands
+that produce huge amounts of output that you don&#8217;t need, that would
+otherwise be hogging memory if stored internally by sh.</p>
+</div>
+<div class="section" id="no-err">
+<h3>_no_err<a class="headerlink" href="#no-err" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.07.0.</span></p>
+</div>
+<p>Disables STDERR being internally stored.  This is useful for commands that
+produce huge amounts of output that you don&#8217;t need, that would otherwise be
+hogging memory if stored internally by sh.</p>
+</div>
+<div class="section" id="no-pipe">
+<h3>_no_pipe<a class="headerlink" href="#no-pipe" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.07.0.</span></p>
+</div>
+<p>Similar to <code class="docutils literal"><span class="pre">_no_out</span></code>, this explicitly tells the sh command that it will never
+be used for piping its output into another command, so it should not fill its
+internal pipe buffer with the process&#8217;s output.  This is also useful for
+conserving memory.</p>
+</div>
+</div>
+<div class="section" id="program-arguments">
+<h2>Program Arguments<a class="headerlink" href="#program-arguments" title="Permalink to this headline">¶</a></h2>
+<p>These are options that affect how command options are fed into the program.</p>
+<div class="section" id="long-sep">
+<h3>_long_sep<a class="headerlink" href="#long-sep" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.0.</span></p>
+</div>
+<p>Default value: <code class="docutils literal"><span class="pre">&quot;=&quot;</span></code></p>
+<p>This is the character(s) that separate a program&#8217;s long argument&#8217;s key from the
+value, when using kwargs to specify your program&#8217;s long arguments.  For example,
+if your program expects a long argument in the form <code class="docutils literal"><span class="pre">--name</span> <span class="pre">value</span></code>, the way to
+achieve this would be to set <code class="docutils literal"><span class="pre">_long_sep=&quot;</span> <span class="pre">&quot;</span></code>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sh</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">your_program</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">_long_sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Would send the following list of arguments to your program:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;--key value&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If your program expects the long argument name to be separate from its value,
+pass <code class="docutils literal"><span class="pre">None</span></code> into <code class="docutils literal"><span class="pre">_long_sep</span></code> instead:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sh</span>
+<span class="n">sh</span><span class="o">.</span><span class="n">your_program</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">_long_sep</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Would send the following list of arguments to your program:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;--key&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="long-prefix">
+<h3>_long_prefix<a class="headerlink" href="#long-prefix" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.0.</span></p>
+</div>
+<p>Default value: <code class="docutils literal"><span class="pre">&quot;--&quot;</span></code></p>
+<p>This is the character(s) that prefix a long argument for the program being run.
+Some programs use single dashes, for example, and do not understand double
+dashes.</p>
+</div>
+<div class="section" id="arg-preprocess">
+<h3>_arg_preprocess<a class="headerlink" href="#arg-preprocess" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.0.</span></p>
+</div>
+<p>Default value: <code class="docutils literal"><span class="pre">None</span></code></p>
+<p>This is an advanced option that allows you to rewrite a command&#8217;s arguments on
+the fly, based on other command arguments, or some other variable.  It is really
+only useful in conjunction with <a class="reference internal" href="../index.html#baking"><span class="std std-ref">baking</span></a>, and only currently used when
+constructing <span class="xref std std-ref">contrib</span> wrappers.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sh</span>
+
+<span class="k">def</span> <span class="nf">processor</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
+
+<span class="n">my_ls</span> <span class="o">=</span> <span class="n">sh</span><span class="o">.</span><span class="n">bake</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">_arg_preprocess</span><span class="o">=</span><span class="n">processor</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The interface to the <code class="docutils literal"><span class="pre">_arg_preprocess</span></code> function may change without
+warning.  It is generally only for internal sh use, so don&#8217;t use it unless
+you absolutely have to.</p>
+</div>
+</div>
+</div>
+<div class="section" id="misc">
+<h2>Misc<a class="headerlink" href="#misc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="log-msg">
+<h3>_log_msg<a class="headerlink" href="#log-msg" title="Permalink to this headline">¶</a></h3>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.12.0.</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sudo.html" class="btn btn-neutral float-right" title="Using Sudo" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="redirection.html" class="btn btn-neutral" title="Redirection" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Andrew Moffat.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.12.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
